@@ -127,6 +127,10 @@ public class PersonResource {
     @Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
     public Response deletePerson( @PathParam( "id" ) Long id ) {
 
+        if ( !sc.isUserInRole( "admin" ) )
+            throw new CustomRestException( "Access denied!",
+                    "Access denied!", Response.Status.FORBIDDEN, 403 );
+
         Person person = null;
 
         try {
