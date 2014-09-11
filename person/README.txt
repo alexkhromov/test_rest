@@ -73,13 +73,13 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
 
 
 ****SETUP PROJECT*****************************************************************
--database configuration in scand-test-khromov\web\src\main\resources\spring\Database.xml 
+-database configuration in person\web\src\main\resources\spring\Database.xml 
 **********************************************************************************
 
 
 
 ****INSTALL AND RUN PROJECT*******************************************************
--open scand-test-khromov\install.bat  and configure next line:
+-open person\install.bat  and configure next line:
 
 	sqlplus / as sysdba @%currentDirectory%\userScript.sql 
 
