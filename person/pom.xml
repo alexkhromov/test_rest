@@ -98,6 +98,12 @@
             <version>1.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>annotations-api</artifactId>
+            <version>6.0.29</version>
+        </dependency>
+
         <!-- HIBERNATE LIBRARY -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -192,7 +198,6 @@
                     <path>/person</path>
                 </configuration>
             </plugin>
-
         </plugins>
 
     </build>

@@ -31,6 +31,17 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
 		redirectPort="8443"
 		URIEncoding="UTF-8"/>
 
+-open %CATALINA_HOME%\conf\server.xml and add into
+ <Realm className="org.apache.catalina.realm.LockOutRealm"></Realm> section
+ next lines:
+
+	<Realm  className="org.apache.catalina.realm.JDBCRealm"
+             driverName="oracle.jdbc.OracleDriver"
+	     connectionURL="jdbc:oracle:thin:@//localhost:1521/XE"
+             connectionName="test1rest" connectionPassword="test1rest"
+             userTable="USERS" userNameCol="USERNAME" userCredCol="USERPASSWORD"
+             userRoleTable="USERROLE" roleNameCol="ROLENAME"/>
+
 -open %CATALINA_HOME%\conf\tomcat-users.xml and add into <tomcat-users></tomcat-users>
  section next lines:
 	

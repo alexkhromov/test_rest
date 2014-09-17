@@ -1,8 +1,10 @@
 package test.rest.controller;
 
+import com.sun.jersey.api.container.filter.RolesAllowedResourceFilterFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -24,10 +26,18 @@ public class PersonResource {
     @Context
     SecurityContext sc;
 
+    @Context
+    HttpHeaders headers;
+
     @GET
     @Path( value = "/get/{id}" )
     @Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
     public Response findPersonById( @PathParam( "id" ) Long id, @Context HttpHeaders headers ) {
+
+        if ( ( headers.getAcceptableMediaTypes().contains( MediaType.valueOf( MediaType.APPLICATION_XHTML_XML ) ) ||
+                headers.getAcceptableMediaTypes().contains( MediaType.valueOf( MediaType.APPLICATION_JSON ) ) ) == false )
+            throw new CustomRestException( "Unsupported media type!",
+                "Unsupported media type!", Response.Status.UNSUPPORTED_MEDIA_TYPE, 415 );
 
         Person person = null;
 
@@ -100,6 +110,7 @@ public class PersonResource {
     @Path( value = "/update/{id}" )
     @Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
     @Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
+    /*@RolesAllowed( "restful" )*/
     public Response updatePerson( @PathParam( "id" ) Long id ) {
 
         Person person = null;
@@ -125,11 +136,12 @@ public class PersonResource {
     @Path( value = "/delete/{id}" )
     @Consumes( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
     @Produces( { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML } )
+    /*@RolesAllowed( "restful" )*/
     public Response deletePerson( @PathParam( "id" ) Long id ) {
 
-        if ( !sc.isUserInRole( "admin" ) )
+       /* if ( !sc.isUserInRole( "admin" ) )
             throw new CustomRestException( "Access denied!",
-                    "Access denied!", Response.Status.FORBIDDEN, 403 );
+                    "Access denied!", Response.Status.FORBIDDEN, 403 );*/
 
         Person person = null;
 
