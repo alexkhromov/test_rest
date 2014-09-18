@@ -35,7 +35,7 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
  <Realm className="org.apache.catalina.realm.LockOutRealm"></Realm> section
  next lines:
 
-    <Realm className="org.apache.catalina.realm.MemoryRealm" digest="MD5"/>
+	<Realm className="org.apache.catalina.realm.MemoryRealm" digest="MD5"/>
 
 	<Realm  className="org.apache.catalina.realm.JDBCRealm" digest="MD5"
              driverName="oracle.jdbc.OracleDriver"
