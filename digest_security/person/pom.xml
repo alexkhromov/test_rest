@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>1.8</jersey.version>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <spring.version>4.0.4.RELEASE</spring.version>
         <hibernate.version>3.5.1-Final</hibernate.version>
         <slf4j.version>1.5.6</slf4j.version>
         <aspectj.version>1.6.11</aspectj.version>
@@ -62,6 +62,12 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <!-- JERSEY + SPRING LIBRARY -->
         <dependency>
             <groupId>com.sun.jersey.contribs</groupId>
@@ -87,6 +93,10 @@
                 <exclusion>
                     <groupId>org.springframework</groupId>
                     <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -146,6 +156,13 @@
             <version>${aspectj.version}</version>
         </dependency>
 
+        <!-- COMMON LIBRARY -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
         <!-- TESTING LIBRARY -->
         <dependency>
             <groupId>junit</groupId>
@@ -165,8 +182,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 

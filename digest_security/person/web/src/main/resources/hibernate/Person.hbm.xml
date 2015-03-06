@@ -14,10 +14,10 @@
         </id>
 
         <property name="name" type="java.lang.String" column="NAME"/>
-	<property name="age" type="java.lang.Integer" column="AGE"/>
+        <property name="age" type="java.lang.Integer" column="AGE"/>
         <property name="hireDate" type="java.util.Date" column="HIREDATE"/>
         <property name="position" type="java.lang.String" column="POSITION"/>
-	<property name="experience" type="java.lang.Integer" column="EXPERIENCE"/>
+        <property name="experience" type="java.lang.Integer" column="EXPERIENCE"/>
         <property name="salary" type="java.lang.Integer" column="SALARY"/>
 
     </class>

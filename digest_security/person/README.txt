@@ -1,10 +1,10 @@
-environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
+environment: Win 8, Java 8, Oracle XE 11.2.0.2.0, Tomcat 8.0.17
 
 
 
 ****SETUP JAVA********************************************************************
 -add new environment variable: name: JAVA_HOME
-                               value: C:\Program Files\Java\jdk1.7.0_45 ( example ) 
+                               value: C:\Program Files\Java\jdk1.8.0_25 ( example ) 
 
 -add to environment variable path: value: %JAVA_HOME%\bin
 **********************************************************************************
@@ -13,7 +13,7 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
 
 ****SETUP TOMCAT******************************************************************
 -add new environment variable: name: CATALINA_HOME
-                               value: C:\J2EE\Tomcat_7.0.47 ( example ) 
+                               value: C:\J2EE\Tomcat_8.0.17 ( example ) 
 
 -add to environment variable path: value: %CATALINA_HOME%\bin
 
@@ -35,7 +35,7 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
  <Realm className="org.apache.catalina.realm.LockOutRealm"></Realm> section
  next lines:
 
-	<Realm className="org.apache.catalina.realm.MemoryRealm" digest="MD5"/>
+    <Realm className="org.apache.catalina.realm.MemoryRealm" digest="MD5"/>
 
 	<Realm  className="org.apache.catalina.realm.JDBCRealm" digest="MD5"
              driverName="oracle.jdbc.OracleDriver"
@@ -58,6 +58,11 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
 	to:
 
 	<url>http://localhost:8085/manager/</url>
+
+-setup Tomcat as a service:
+	
+	next command will install the service named 'Tomcat8'
+	C:\> service.bat install
 **********************************************************************************
 
 
@@ -100,5 +105,5 @@ environment: Win 7, Java 7, Oracle XE 11.2.0.2.0, Tomcat 7.0.47
 
 	with your DBA account ( in case using different DB )
 
--run install.bat and open link http://localhost:8085/person/
+-run install.bat and link http://localhost:8085/person/rest/
 **********************************************************************************       
